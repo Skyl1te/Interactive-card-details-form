@@ -9,16 +9,19 @@ const monthInput = document.querySelector('.exp-date-mm')
 const yearInput = document.querySelector('.exp-date-yy')
 const cvcInput = document.querySelector('.cvc__input')
 
+
 const MAX_NUMBER_LENGTH = 16
 const MAX_NAME_LENGTH = 50
 const MAX_MM_LENGTH = 2
 const MAX_YY_LENGTH = 2
 const MAX_CVC_LENGTH = 3
 
+
 function inputNumber() {
     limitInputLength(numberInput, MAX_NUMBER_LENGTH)
-    cardFrontNum.textContent = numberInput.value
-    checkInput(numberInput.value, 'number')
+    const formattedValue = numberInput.value.replace(/\d{4}(?=\d)/g, '$& ');
+    cardFrontNum.textContent = formattedValue;
+    checkInput(numberInput.value, 'number');
 }
 
 function inputHolder() {
@@ -69,6 +72,22 @@ function checkInput(inputVal, el) {
 		}
 	}
 }
+
+function validateForm() {
+	const requiredInputs = document.querySelectorAll('.requierdInput')
+	const errorElements = document.querySelectorAll('.error')
+
+	requiredInputs.forEach((requiredInput, index) => {
+		const error = errorElements[index]
+
+		if (requiredInput.value.trim() == '') {
+			error.style.display = 'inline'
+		} else {
+			error.style.display = 'none'
+		}
+	})
+}
+
 
 function limitInputLength(input, inputlength) {
 	if (input.value.length > inputlength) {

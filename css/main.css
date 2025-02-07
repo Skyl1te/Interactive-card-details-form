@@ -209,11 +209,6 @@ button:focus, button:focus-visible, button:active {
   grid-column: 2;
 }
 
-.error {
-  color: hsl(0, 100%, 66%);
-  display: none;
-}
-
 .confirm-btn {
   width: 100%;
   padding: 0.75rem;
@@ -237,4 +232,11 @@ button:focus, button:focus-visible, button:active {
   background-repeat: no-repeat;
   background-position: top;
   padding-bottom: 2.5rem;
+}
+
+.error {
+  text-transform: capitalize;
+  font-size: 0.7rem;
+  color: hsl(0, 100%, 66%);
+  display: none;
 }
