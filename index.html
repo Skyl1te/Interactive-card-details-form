@@ -15,27 +15,45 @@
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="card">
+      <div class="card-front">
+        <img src="images/card-logo.svg" alt="logo" class="card-front__logo">
+        <p class="card-front__card-num">0000 0000 0000 0000</p>
+        <p class="card-front__card-name">Jane Appleseed</p>
+        <p class="card-front__card-date">00/00</p>
+      </div>
+      <div class="card-back">
+        <p class="card-back__cvc">000</p>
+      </div>
+    </div>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+    <form action="#" class="form">
+      <div class="holder">
+        <label for="holder" class="holder__label">Cardholder Name</label>
+        <input type="text" placeholder="e.g. Jane Appleseed" class="holder__input" id="holder">  
+      </div>
+      <div class="number">
+        <label for="number" class="number__label">Card Number</label>
+        <input type="text" placeholder="e.g. 1234 5678 9123 0000" class="number__input" id="number">  
+      
+      </div>
+      <div class="exp-date-cvc">
+        <div class="exp-date">
+          <label for="exp-date" class="exp-date__label">Exp. Date (MM/YY)</label>
+          <input placeholder="MM" type="text" class="exp-date__input" id="exp-date">  
+          <input placeholder="YY" type="text" class="exp-date__input" id="exp-date">  
+        </div>
+        <div class="cvc">
+          <label for="cvc" class="cvc__label">CVC</label>
+          <input placeholder="e.g. 123" type="text" class="cvc__input" id="exp-date">  
+        </div>
+      </div>
 
-  000
-
-  Cardholder Name
-  e.g. Jane Appleseed
-
-  Card Number
-  e.g. 1234 5678 9123 0000
-
-  Exp. Date (MM/YY)
-  MM
-  YY
-
-  CVC
-  e.g. 123
-
-  Confirm
+      <button type="submit">Confirm</button>
+    
+    </form>
+  </div>  
 
   <!-- Completed state start -->
 
