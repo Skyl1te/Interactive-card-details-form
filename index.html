@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <link rel="stylesheet" href="./css/main.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Interactive card details form</title>
@@ -15,77 +15,87 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <div class="card-front">
-        <img src="images/card-logo.svg" alt="logo" class="card-front__logo">
-        <p class="card-front__card-num">0000 0000 0000 0000</p>
-        <p class="card-front__card-name">Jane Appleseed</p>
-        <p class="card-front__card-date">00/00</p>
+  <div class="wrapper">
+    <div class="container">
+      <div class="card">
+        <div class="card-front">
+          <img src="images/card-logo.svg" alt="logo" class="card-front__logo">
+          <p class="card-front__card-num">0000 0000 0000 0000</p>
+          <p class="card-front__card-name">Jane Appleseed</p>
+          <p class="card-front__card-date">00/00</p>
+        </div>
+        <div class="card-back">
+          <p class="card-back__cvc">000</p>
+        </div>
       </div>
-      <div class="card-back">
-        <p class="card-back__cvc">000</p>
-      </div>
-    </div>
+  
+      <form action="#" class="form">
+        <div class="holder">
+          <label  class="holder__label">Cardholder Name</label>
+          <input type="text" 
+          placeholder="e.g. Jane Appleseed" 
+          class="holder__input" 
+          id="holder"
+          oninput="inputHolder()">  
+          <p class="error">Can't be blank</p>
 
-    <form action="#" class="form">
-      <div class="holder">
-        <label for="holder" class="holder__label">Cardholder Name</label>
-        <input type="text" 
-        placeholder="e.g. Jane Appleseed" 
-        class="holder__input" 
-        id="holder"
-        oninput="inputHolder()">  
-      </div>
-      <div class="number">
-        <label for="number" class="number__label">Card Number</label>
-        <input type="number"
-        placeholder="e.g. 1234 5678 9123 0000"
-        class="number__input"
-        id="number"
-        oninput="inputNumber()">  
+        </div>
+        <div class="number">
+          <label  class="number__label">Card Number</label>
+          <input type="number"
+          placeholder="e.g. 1234 5678 9123 0000"
+          class="number__input"
+          id="number"
+          oninput="inputNumber()">
+          <p class="error">Can't be blank</p>
+
+        
+        </div>
+        <div class="exp-date-cvc">
+          <div class="exp-date">
+            <label  class="exp-date__label">Exp. Date (MM/YY)</label>
+            <input placeholder="MM" maxlength="2" max="12"
+            type="number"
+            class="exp-date__input exp-date-mm"
+            id="exp-date"
+            oninput="inputDate()">
+            
+            
+            <input placeholder="YY" maxlength="2"
+            type="number"
+            class="exp-date__input exp-date-yy"
+            id="exp-date"
+            oninput="inputDate()">  
+            
+            <p class="error">Can't be blank</p>
+          </div>
+          <div class="cvc">
+            <label  class="cvc__label">CVC</label>
+            <input placeholder="e.g. 123" 
+            type="number" 
+            class="cvc__input"
+            id="cvc"
+            oninput="inputCVC()"> 
+          <p class="error">Can't be blank</p>
+          </div>
+        </div>
+  
+        <button type="submit" class="confirm-btn">Confirm</button>
       
-      </div>
-      <div class="exp-date-cvc">
-        <div class="exp-date">
-          <label for="exp-date" class="exp-date__label">Exp. Date (MM/YY)</label>
-          <input placeholder="MM" maxlength="2" max="12"
-          type="number"
-          class="exp-date__input exp-date-mm"
-          id="exp-date"
-          oninput="inputDate()">  
-
-          <input placeholder="YY" maxlength="2"
-          type="number"
-          class="exp-date__input exp-date-yy"
-          id="exp-date"
-          oninput="inputDate()">  
-        </div>
-        <div class="cvc">
-          <label for="cvc" class="cvc__label">CVC</label>
-          <input placeholder="e.g. 123" 
-          type="number" 
-          class="cvc__input"
-          id="cvc"
-          oninput="inputCVC()">  
-        </div>
-      </div>
-
-      <button type="submit">Confirm</button>
-    
-    </form>
+      </form>
+    </div>
   </div>  
 
   <!-- Completed state start -->
 
-  Thank you!
+  <!-- Thank you!
   We've added your card details
   Continue
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
   <script src="src/js/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,90 @@
+.form {
+	position: relative;
+	display: grid;
+	flex-direction: column;
+	margin-top: 2.2rem;
+	font-size: .85rem;
+	// max-width: 320px;
+}
+.holder, .number, .cvc, .exp-date, .exp-date-cvc {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 10px;
+	margin-top: 1rem;
+	text-transform: uppercase;
+
+	&__label {
+		font-size: .7rem;
+	}
+
+	&__input {
+		font-size: .8rem;
+		color: $dark-grayish-violet;
+		border: 1px solid $light-grayish-violet;
+		padding: .75rem;
+		border-radius: .5rem;
+		outline: none;
+		transition: all .15s linear;
+
+
+		&:focus, &:focus-visible, &:focus-within, &:active {
+			cursor: pointer;
+			border: 1px solid transparent;
+			border-image-source: $primary-gradient;
+			border-image-slice: 1; 
+		}
+
+		&:hover {
+			cursor: pointer;
+			border: 1px solid ;
+			border-image-source: $primary-gradient;
+			border-color: transparent;
+			border-image-slice: 1; 
+			border-radius: .5rem;
+			transition: all .15s linear;
+		}
+		
+	}
+}
+.exp-date-cvc {
+	display: grid;
+}
+
+.exp-date {
+	display: grid;
+	grid-column: 1;
+	
+	&__label {
+		grid-column: span 2;
+	}	
+
+	&__input {
+		width: 4rem;
+	}
+}
+
+.cvc {
+	grid-column:  2;
+
+	&__label {
+		grid-column: span 2/3;
+	}
+
+	&__input {
+		// width: 10rem;
+	}
+}
+
+
+.exp-date-mm {
+	grid-column: 1;
+}
+.exp-date-yy {
+	grid-column: 2;
+}
+
+.error {
+	color: $error-input;
+	display: none;
+}

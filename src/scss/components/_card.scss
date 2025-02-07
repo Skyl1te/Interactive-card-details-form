@@ -1,0 +1,67 @@
+.card {
+	position: relative;
+	width: 100%;
+	height: 260px;
+	// overflow: hidden;
+}
+
+.card-front {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background-image: url('../images/bg-card-front.png');
+	background-repeat: no-repeat;
+	z-index: 2;
+	height: 160px;
+	width: 100%;
+	max-width: 280px;
+	padding: .8rem;
+	color: $white;
+	border-radius: .75rem;
+
+	&__logo {
+		grid-column: span 2;
+		height: 35px;
+	}
+	&__card-num {
+		grid-column: span 2;
+		text-align: center;
+		font-size: 1.4rem;
+		font-weight: 400;
+	}
+	&__card-name {
+		grid-column: 1;
+		font-weight: 300;
+		text-align: left;
+		font-size: .9rem;
+	}
+	&__card-date {
+		grid-column: 2;
+		text-align: end;
+		font-size: .9rem;
+		font-weight: 300;
+	}
+}
+
+.card-back {
+	position: absolute;
+	height: 150px;
+	width: 100%;
+	top: 1rem;
+	right: -4.5rem;
+	background-image: url('../images/bg-card-back.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	border-radius: .75rem;
+
+	&__cvc {
+		position: absolute;
+		color: $white;
+		z-index: 3;
+		margin-top: 1.3rem;
+		margin-left: 13rem;
+	}
+}
+
