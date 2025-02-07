@@ -31,22 +31,43 @@
     <form action="#" class="form">
       <div class="holder">
         <label for="holder" class="holder__label">Cardholder Name</label>
-        <input type="text" placeholder="e.g. Jane Appleseed" class="holder__input" id="holder">  
+        <input type="text" 
+        placeholder="e.g. Jane Appleseed" 
+        class="holder__input" 
+        id="holder"
+        oninput="inputHolder()">  
       </div>
       <div class="number">
         <label for="number" class="number__label">Card Number</label>
-        <input type="text" placeholder="e.g. 1234 5678 9123 0000" class="number__input" id="number">  
+        <input type="number"
+        placeholder="e.g. 1234 5678 9123 0000"
+        class="number__input"
+        id="number"
+        oninput="inputNumber()">  
       
       </div>
       <div class="exp-date-cvc">
         <div class="exp-date">
           <label for="exp-date" class="exp-date__label">Exp. Date (MM/YY)</label>
-          <input placeholder="MM" type="text" class="exp-date__input" id="exp-date">  
-          <input placeholder="YY" type="text" class="exp-date__input" id="exp-date">  
+          <input placeholder="MM" maxlength="2" max="12"
+          type="number"
+          class="exp-date__input exp-date-mm"
+          id="exp-date"
+          oninput="inputDate()">  
+
+          <input placeholder="YY" maxlength="2"
+          type="number"
+          class="exp-date__input exp-date-yy"
+          id="exp-date"
+          oninput="inputDate()">  
         </div>
         <div class="cvc">
           <label for="cvc" class="cvc__label">CVC</label>
-          <input placeholder="e.g. 123" type="text" class="cvc__input" id="exp-date">  
+          <input placeholder="e.g. 123" 
+          type="number" 
+          class="cvc__input"
+          id="cvc"
+          oninput="inputCVC()">  
         </div>
       </div>
 
@@ -65,5 +86,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  <script src="src/js/index.js"></script>
 </body>
 </html>
