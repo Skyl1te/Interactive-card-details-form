@@ -1,16 +1,14 @@
 .form {
 	position: relative;
-	display: grid;
-	flex-direction: column;
 	margin-top: 2.2rem;
 	font-size: .85rem;
-	// max-width: 320px;
+	max-width: 340px;
 }
 .holder, .number, .cvc, .exp-date, .exp-date-cvc {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	gap: 10px;
+	gap: 1px;
 	margin-top: 1rem;
 	text-transform: uppercase;
 
@@ -60,7 +58,8 @@
 	}	
 
 	&__input {
-		width: 4rem;
+		width: 3rem;
+		font-size: .8rem;
 	}
 }
 
@@ -81,3 +80,11 @@
 .exp-date-yy {
 	grid-column: 2;
 }
+
+@media (min-width: 1020px) {
+	.form {
+		// margin-left: 15rem;
+		zoom: 1.2;
+	}
+}
+

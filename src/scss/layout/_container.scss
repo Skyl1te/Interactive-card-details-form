@@ -1,12 +1,18 @@
 .container {
 	position: relative;
-	// padding: 1rem;
+	width: 100%;
 	overflow: hidden;
+	// max-width: 420px;
+	padding: 1rem;
 }
 
 
 
-@media (min-width: 420px) {
-	.wrapper {
+@media (min-width: 1020px) {
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		height: 100vh;
 	}
 }

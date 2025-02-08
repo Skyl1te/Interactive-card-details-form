@@ -9,6 +9,7 @@ const monthInput = document.querySelector('.exp-date-mm')
 const yearInput = document.querySelector('.exp-date-yy')
 const cvcInput = document.querySelector('.cvc__input')
 
+const confirmBtn = document.querySelector('.confirm-btn')
 
 const MAX_NUMBER_LENGTH = 16
 const MAX_NAME_LENGTH = 50
@@ -73,24 +74,35 @@ function checkInput(inputVal, el) {
 	}
 }
 
-function validateForm() {
-	const requiredInputs = document.querySelectorAll('.requierdInput')
-	const errorElements = document.querySelectorAll('.error')
-
-	requiredInputs.forEach((requiredInput, index) => {
-		const error = errorElements[index]
-
-		if (requiredInput.value.trim() == '') {
-			error.style.display = 'inline'
-		} else {
-			error.style.display = 'none'
-		}
-	})
-}
-
-
 function limitInputLength(input, inputlength) {
 	if (input.value.length > inputlength) {
 		input.value = input.value.slice(0, inputlength)
 	}
 }
+
+
+function validateForm() {
+	const requiredInputs = document.querySelectorAll('.requierdInput')
+	const errorElements = document.querySelectorAll('.error')
+	let isValid = true 
+	requiredInputs.forEach((requiredInput, index) => {
+		const error = errorElements[index]
+
+		if (requiredInput.value.trim() == '') {
+			error.style.display = 'inline'
+			isValid = false
+		} else {
+			error.style.display = 'none'
+		}
+	})
+	if (isValid) {
+		document.querySelector('.form').style.display = 'none'
+		document.querySelector('.completed').style.display = 'flex'
+	} else {
+		document.querySelector('.completed').style.display = 'none'
+	}
+}
+
+confirmBtn.addEventListener('click', () => {
+	validateForm()
+})

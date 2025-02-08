@@ -8,3 +8,12 @@
 	background-position: top;
 	padding-bottom: 2.5rem;
 }
+
+@media (min-width: 1020px) {
+	.wrapper {
+		display: block;
+		background-image: url(../images/bg-main-desktop.png);
+		background-position: left;
+		background-size: contain;
+	}
+}

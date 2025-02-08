@@ -10,19 +10,21 @@
 	bottom: 0;
 	left: 0;
 	display: grid;
+	align-items: end;
 	grid-template-columns: repeat(2, 1fr);
 	background-image: url('../images/bg-card-front.png');
 	background-repeat: no-repeat;
 	z-index: 2;
 	height: 160px;
 	width: 100%;
-	max-width: 280px;
-	padding: .8rem;
+	max-width: 330px;
+	padding: 1rem;
 	color: $white;
 	border-radius: .75rem;
 
 	&__logo {
 		grid-column: span 2;
+		align-self: self-start;
 		height: 35px;
 	}
 	&__card-num {
@@ -49,6 +51,7 @@
 	position: absolute;
 	height: 150px;
 	width: 100%;
+	max-width: 330px;
 	top: 1rem;
 	right: -4.5rem;
 	background-image: url('../images/bg-card-back.png');
@@ -61,7 +64,35 @@
 		color: $white;
 		z-index: 3;
 		margin-top: 1.3rem;
-		margin-left: 13rem;
+		margin-left: 12rem;
 	}
 }
 
+@media (min-width: 1020px) {
+
+	.card {
+		height: 100%;
+		max-width: 620px;
+	}
+	.card-front {
+		left: 10rem;
+		top: 12rem;
+		max-width: 330px;
+	}
+
+	.card-back {
+		top: 25rem;
+		left: 14rem;
+		background-size: cover;
+
+		&__cvc {
+			top: 3.7rem;
+			right: 2.5rem;
+		}
+	}
+
+	.card-front, .card-back {
+		height: 180px;
+		width: 100%;
+	}
+}

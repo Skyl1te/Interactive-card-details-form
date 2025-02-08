@@ -28,7 +28,6 @@
           <p class="card-back__cvc">000</p>
         </div>
       </div>
-  
       <form action="#" class="form">
         <div class="holder">
           <label  class="holder__label">Cardholder Name</label>
@@ -80,16 +79,28 @@
           </div>
         </div>
   
-        <button type="submit" class="confirm-btn" onclick="validateForm()">Confirm</button>
+        <button type="submit" class="confirm-btn btn">Confirm</button>
       
       </form>
+
+      <div class="completed">
+        <img src="images/icon-complete.svg" alt="success" class="completed__img">
+        <h1 class="completed__title">
+          Thank you!
+        </h1>
+        <p class="completed__subtitle">
+          We've added your card details
+        </p>
+
+        <button class="completed__btn btn" onclick="window.location.reload();">Continue</button>
+      </div>
+
     </div>
   </div>  
 
   <!-- Completed state start -->
 
-  <!-- Thank you!
-  We've added your card details
+  <!-- 
   Continue
   
   <div class="attribution">

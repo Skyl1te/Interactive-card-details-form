@@ -72,6 +72,13 @@ button:focus, button:focus-visible, button:active {
   border: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 .card {
   position: relative;
   width: 100%;
@@ -83,19 +90,21 @@ button:focus, button:focus-visible, button:active {
   bottom: 0;
   left: 0;
   display: grid;
+  align-items: end;
   grid-template-columns: repeat(2, 1fr);
   background-image: url("../images/bg-card-front.png");
   background-repeat: no-repeat;
   z-index: 2;
   height: 160px;
   width: 100%;
-  max-width: 280px;
-  padding: 0.8rem;
+  max-width: 330px;
+  padding: 1rem;
   color: hsl(0, 0%, 100%);
   border-radius: 0.75rem;
 }
 .card-front__logo {
   grid-column: span 2;
+  align-self: self-start;
   height: 35px;
 }
 .card-front__card-num {
@@ -121,6 +130,7 @@ button:focus, button:focus-visible, button:active {
   position: absolute;
   height: 150px;
   width: 100%;
+  max-width: 330px;
   top: 1rem;
   right: -4.5rem;
   background-image: url("../images/bg-card-back.png");
@@ -133,22 +143,45 @@ button:focus, button:focus-visible, button:active {
   color: hsl(0, 0%, 100%);
   z-index: 3;
   margin-top: 1.3rem;
-  margin-left: 13rem;
+  margin-left: 12rem;
 }
 
+@media (min-width: 1020px) {
+  .card {
+    height: 100%;
+    max-width: 620px;
+  }
+  .card-front {
+    left: 10rem;
+    top: 12rem;
+    max-width: 330px;
+  }
+  .card-back {
+    top: 25rem;
+    left: 14rem;
+    background-size: cover;
+  }
+  .card-back__cvc {
+    top: 3.7rem;
+    right: 2.5rem;
+  }
+  .card-front, .card-back {
+    height: 180px;
+    width: 100%;
+  }
+}
 .form {
   position: relative;
-  display: grid;
-  flex-direction: column;
   margin-top: 2.2rem;
   font-size: 0.85rem;
+  max-width: 340px;
 }
 
 .holder, .number, .cvc, .exp-date, .exp-date-cvc {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 10px;
+  gap: 1px;
   margin-top: 1rem;
   text-transform: uppercase;
 }
@@ -192,7 +225,8 @@ button:focus, button:focus-visible, button:active {
   grid-column: span 2;
 }
 .exp-date__input {
-  width: 4rem;
+  width: 3rem;
+  font-size: 0.8rem;
 }
 
 .cvc {
@@ -209,7 +243,12 @@ button:focus, button:focus-visible, button:active {
   grid-column: 2;
 }
 
-.confirm-btn {
+@media (min-width: 1020px) {
+  .form {
+    zoom: 1.2;
+  }
+}
+.btn {
   width: 100%;
   padding: 0.75rem;
   border-radius: 0.35rem;
@@ -219,11 +258,50 @@ button:focus, button:focus-visible, button:active {
   font-size: 1rem;
 }
 
+.completed {
+  display: none;
+  width: 290px;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+.completed__img {
+  width: 80px;
+  height: 80px;
+}
+.completed__title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: hsl(278, 68%, 11%);
+  margin-top: 0.5rem;
+}
+.completed__subtitle {
+  color: hsl(279, 6%, 55%);
+  font-weight: 400;
+  font-size: 1rem;
+}
+@media (min-width: 1020px) {
+  .completed {
+    zoom: 1.2;
+  }
+}
 .container {
   position: relative;
+  width: 100%;
   overflow: hidden;
+  padding: 1rem;
 }
 
+@media (min-width: 1020px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+}
 .wrapper {
   display: grid;
   place-content: center;
@@ -234,6 +312,14 @@ button:focus, button:focus-visible, button:active {
   padding-bottom: 2.5rem;
 }
 
+@media (min-width: 1020px) {
+  .wrapper {
+    display: block;
+    background-image: url(../images/bg-main-desktop.png);
+    background-position: left;
+    background-size: contain;
+  }
+}
 .error {
   text-transform: capitalize;
   font-size: 0.7rem;
