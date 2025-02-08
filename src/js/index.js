@@ -22,6 +22,7 @@ function inputNumber() {
     limitInputLength(numberInput, MAX_NUMBER_LENGTH)
     const formattedValue = numberInput.value.replace(/\d{4}(?=\d)/g, '$& ');
     cardFrontNum.textContent = formattedValue;
+
     checkInput(numberInput.value, 'number');
 }
 
@@ -33,7 +34,7 @@ function inputHolder() {
 
 function inputDate() {
 	if (monthInput.value > 12 || monthInput.value < 0) {
-		monthInput.value= 0
+		monthInput.value= 1
 	}
 	limitInputLength(monthInput, MAX_MM_LENGTH) 
     limitInputLength(yearInput, MAX_YY_LENGTH)  
@@ -90,16 +91,57 @@ function validateForm() {
 
 		if (requiredInput.value.trim() == '') {
 			error.style.display = 'inline'
+			requiredInput.style.border = '1px solid red'
 			isValid = false
 		} else {
 			error.style.display = 'none'
+			requiredInput.style.border = '1px solid hsl(270, 3%, 87%)'
 		}
+
+		checkNumber(numberInput.value)
+		checkCVC(cvcInput.value)
+		checkDate(monthInput, yearInput)
+
 	})
 	if (isValid) {
 		document.querySelector('.form').style.display = 'none'
 		document.querySelector('.completed').style.display = 'flex'
 	} else {
 		document.querySelector('.completed').style.display = 'none'
+	}
+
+	function checkNumber(num) {
+		if (num.length != 16) {
+			numberInput.style.border = '1px solid red' 
+			isValid = false
+		} else {
+			numberInput.style.border = '1px solid hsl(270, 3%, 87%)' 
+		}
+	}
+	
+	function checkDate(monthInput, yearInput) {
+		if (monthInput.value < 1 || monthInput.value > 12 || monthInput.value.trim() == '') {
+			monthInput.style.border = '1px solid red'
+			isValid = false
+		} else {
+			monthInput.style.border = '1px solid hsl(270, 3%, 87%)' 
+		}
+	
+		if (yearInput.value.trim() == '') {
+			yearInput.style.border = '1px solid red'
+			isValid = false	
+		} else {
+			yearInput.style.border = '1px solid hsl(270, 3%, 87%)' 
+		}
+	}
+	
+	function checkCVC(cvc) {
+		if (cvc.length != 3) {
+			cvcInput.style.border = '1px solid red'
+			isValid = false
+		} else {
+			cvcInput.style.border = '1px solid hsl(270, 3%, 87%)' 
+		}
 	}
 }
 
